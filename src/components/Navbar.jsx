@@ -9,11 +9,12 @@ const Navbar = (props) => {
     <div className="navbar-fixed">
       <nav>
         <div className="nav-wrapper">
-          <a href="#!" className="brand-logo">REACT ROUTE</a>
+          <a href="#!" className="brand-logo">AXIOS & ROUTE PARAM</a>
           <ul className="right hide-on-med-and-down">
             <li><Link to="/">Home</Link></li>
             <li><NavLink to="/about">About</NavLink></li>
             <li><NavLink to="/contact">Contact</NavLink></li>
+            
           </ul>
         </div>
       </nav>

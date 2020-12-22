@@ -1,5 +1,8 @@
 import React, {Component} from "react";
 import axios from "axios";
+import {Link} from "react-router-dom";
+import Logo from "../logo.png"
+import "../index.css"
 
 class Home extends Component {
   state = {
@@ -16,8 +19,6 @@ class Home extends Component {
       url: "https://jsonplaceholder.typicode.com/users"
     });
 
-    console.log(userdata);
-    console.log(data.data.slice(0, 50))
     this.setState({
       posts: data.data.slice(0, 50),
       user: userdata.data
@@ -28,16 +29,19 @@ class Home extends Component {
     const postList = (posts.length && user.length) ? (
       posts.map(item => {
           return (
-            <div className="post card" key={item.id}>
+            <div className="post card black-text" key={item.id}>
+              {/* <img src={Logo} alt="A Logo" /> */}
               <div className="card-content">
+                <Link to={"/" + item.id}>
                 <span className="card-title">{item.title}</span>
+                </Link>
                 <p>{item.body}</p>
               </div>
             </div>
           )
         })
     ) : (
-      <div className="center">No Posts Yet</div>
+      <div className="center">Loading data...</div>
     )
     return (
       <div className="container">
